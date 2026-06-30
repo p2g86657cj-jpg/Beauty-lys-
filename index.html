@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Lys – Esthétique & Beauté</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="nav__logo">
+        <img src="images/logo.png" alt="Beauty Lys" />
+      </a>
+      <button class="nav__burger" aria-label="Menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#horaires">Horaires</a></li>
+        <li><a href="#contact" class="btn btn--outline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner container">
+      <p class="hero__eyebrow">Esthétique & Beauté</p>
+      <h1 class="hero__title">Prenez soin<br /><em>de vous</em></h1>
+      <p class="hero__sub">Onglerie · Semi-permanent · Massage · Rehaussement de cils</p>
+      <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
+    </div>
+    <div class="hero__overlay"></div>
+  </section>
+
+  <!-- PRESTATIONS -->
+  <section class="section prestations" id="prestations">
+    <div class="container">
+      <h2 class="section__title">Nos Prestations</h2>
+      <p class="section__sub">Des soins sur mesure pour révéler votre beauté</p>
+      <div class="cards">
+
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 52 C18 44 16 36 20 28 C24 20 32 18 36 24 C40 30 38 42 34 52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M26 52 C24 42 24 32 28 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="32" cy="54" rx="12" ry="3" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Ongles en gel</h3>
+          <p class="card__desc">Pose complète en gel pour des ongles solides, brillants et durables.</p>
+          <span class="card__price">35 €</span>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 48 C16 40 18 32 24 26 C28 22 34 22 36 28 C38 34 36 44 32 52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M24 48 C22 40 22 32 26 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M12 36 C12 30 14 24 18 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/>
+              <ellipse cx="28" cy="53" rx="10" ry="2.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Semi-permanent mains</h3>
+          <p class="card__desc">Vernis semi-permanent longue durée pour des mains impeccables jusqu'à 3 semaines.</p>
+          <span class="card__price">25 €</span>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 50 C16 42 20 34 28 30 C34 27 40 30 40 38 C40 46 34 54 26 56" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M22 52 C20 44 22 36 28 32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="30" cy="57" rx="12" ry="2.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Semi-permanent pieds</h3>
+          <p class="card__desc">Pédicure et vernis semi-permanent pour des pieds soignés et colorés.</p>
+          <span class="card__price">25 €</span>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 32 C12 20 22 12 32 12 C42 12 52 20 52 32 C52 44 42 52 32 52 C22 52 12 44 12 32Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M20 26 C24 22 32 22 38 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 36 C22 42 32 44 42 40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="4" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Massage corps</h3>
+          <p class="card__desc">Massage relaxant du corps pour vous détendre et vous ressourcer en profondeur.</p>
+          <span class="card__price">60 €</span>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="32" cy="30" rx="18" ry="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M14 30 C14 30 18 44 32 44 C46 44 50 30 50 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M24 30 C26 24 30 20 32 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M40 30 C38 24 34 20 32 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Rehaussement de cils</h3>
+          <p class="card__desc">Rehaussement et teinture pour un regard ouvert et lumineux sans effort quotidien.</p>
+          <span class="card__price">60 €</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE AVANT/APRES -->
+  <section class="section galerie" id="galerie">
+    <div class="container">
+      <h2 class="section__title">Avant / Après</h2>
+      <p class="section__sub">Quelques réalisations de notre salon</p>
+      <div class="gallery">
+
+        <div class="gallery__item gallery__item--duo">
+          <div class="gallery__label">Avant</div>
+          <img src="images/avant.jpeg" alt="Ongles avant traitement" loading="lazy" />
+        </div>
+
+        <div class="gallery__item">
+          <div class="gallery__label gallery__label--after">Après</div>
+          <img src="images/apres1.jpeg" alt="Ongles en gel – french rouge" loading="lazy" />
+          <p class="gallery__caption">Ongles en gel – French rouge</p>
+        </div>
+
+        <div class="gallery__item">
+          <div class="gallery__label gallery__label--after">Après</div>
+          <img src="images/apres2.jpeg" alt="Semi-permanent rose avec nail art" loading="lazy" />
+          <p class="gallery__caption">Semi-permanent rose & nail art</p>
+        </div>
+
+        <div class="gallery__item">
+          <div class="gallery__label gallery__label--after">Après</div>
+          <img src="images/apres3.jpeg" alt="French blanc avec nail art floral" loading="lazy" />
+          <p class="gallery__caption">French blanc & nail art floral</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HORAIRES -->
+  <section class="section horaires" id="horaires">
+    <div class="container">
+      <h2 class="section__title">Horaires</h2>
+      <div class="horaires__card">
+        <div class="horaires__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+            <path d="M24 12 L24 24 L32 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="horaires__info">
+          <p class="horaires__days">Lundi — Dimanche</p>
+          <p class="horaires__time">9h00 – 19h00</p>
+          <p class="horaires__note">Ouvert 7j/7 — Sur rendez-vous</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container contact__grid">
+
+      <div class="contact__info">
+        <h2 class="section__title section__title--left">Contactez-nous</h2>
+        <p class="contact__lead">Prenez rendez-vous ou posez vos questions — nous vous répondons dans les plus brefs délais.</p>
+
+        <ul class="contact__list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.6 10.8C7.8 13.2 9.8 15.2 12.2 16.4L14.2 14.4C14.5 14.1 14.9 14 15.3 14.2C16.5 14.6 17.8 14.8 19 14.8C19.6 14.8 20 15.2 20 15.8V19C20 19.6 19.6 20 19 20C10.2 20 3 12.8 3 4C3 3.4 3.4 3 4 3H7.2C7.8 3 8.2 3.4 8.2 4C8.2 5.2 8.4 6.5 8.8 7.7C8.9 8.1 8.8 8.5 8.6 8.8L6.6 10.8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <a href="tel:+32494284074">0494 28 40 74</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <a href="mailto:deliremaelys@gmail.com">deliremaelys@gmail.com</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+            <a href="https://www.instagram.com/beauty._lys" target="_blank" rel="noopener">@beauty._lys</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 2H15C13.7 2 12.5 2.5 11.6 3.4C10.7 4.3 10.2 5.5 10.2 6.8V9.6H7V13.2H10.2V20.8H13.8V13.2H17L17.6 9.6H13.8V6.8C13.8 6.4 13.96 6.02 14.24 5.74C14.52 5.46 14.9 5.3 15.3 5.3H18V2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <a href="https://www.facebook.com/Beauty.Lys" target="_blank" rel="noopener">Beauty.Lys</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact__form-wrap">
+        <form class="form" id="contactForm" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+              <span class="form__error" id="nomError"></span>
+            </div>
+            <div class="form__group">
+              <label for="prenom">Prénom *</label>
+              <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+              <span class="form__error" id="prenomError"></span>
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+            <span class="form__error" id="emailError"></span>
+          </div>
+          <div class="form__group">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="04XX XX XX XX" />
+          </div>
+          <div class="form__group">
+            <label for="prestation">Prestation souhaitée</label>
+            <select id="prestation" name="prestation">
+              <option value="">— Choisir une prestation —</option>
+              <option value="gel">Ongles en gel – 35 €</option>
+              <option value="semi-main">Semi-permanent mains – 25 €</option>
+              <option value="semi-pied">Semi-permanent pieds – 25 €</option>
+              <option value="massage">Massage corps – 60 €</option>
+              <option value="cils">Rehaussement de cils – 60 €</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="4" placeholder="Votre message, disponibilités souhaitées…" required></textarea>
+            <span class="form__error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Envoyer ma demande</button>
+          <div class="form__success" id="formSuccess" aria-live="polite"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="images/logo.png" alt="Beauty Lys" class="footer__logo" />
+      <p class="footer__copy">© 2024 Beauty Lys – Esthétique & Beauté. Tous droits réservés.</p>
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/beauty._lys" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/Beauty.Lys" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2H15C13.7 2 12.5 2.5 11.6 3.4C10.7 4.3 10.2 5.5 10.2 6.8V9.6H7V13.2H10.2V20.8H13.8V13.2H17L17.6 9.6H13.8V6.8C13.8 6.4 13.96 6.02 14.24 5.74C14.52 5.46 14.9 5.3 15.3 5.3H18V2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-top" id="backTop" aria-label="Retour en haut">&#8679;</a>
+
+  <script src="main.js"></script>
+</body>
+</html>
