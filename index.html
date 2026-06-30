@@ -276,6 +276,63 @@
     .process-step p { font-size: .84rem; color: var(--muted); line-height: 1.8; }
 
     /* ==============================
+       AVIS CLIENTS
+    ============================== */
+    .reviews-sec { background: var(--blush); overflow: hidden; }
+    .reviews-header { text-align: center; padding-bottom: 56px; }
+    .reviews-stars-avg {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--ivory); border-radius: 50px;
+      padding: 10px 22px; margin-bottom: 28px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .06em;
+      color: var(--brown); box-shadow: var(--shadow-sm);
+    }
+    .reviews-stars-avg span { color: #E8A060; font-size: 1rem; letter-spacing: 1px; }
+
+    .marquee-wrap { position: relative; display: flex; flex-direction: column; gap: 16px; }
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+    }
+    .marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--blush), transparent); }
+    .marquee-wrap::after  { right: 0; background: linear-gradient(to left,  var(--blush), transparent); }
+
+    .marquee-track {
+      display: flex; gap: 16px; width: max-content;
+      animation: marquee-left 40s linear infinite;
+    }
+    .marquee-track.reverse { animation-direction: reverse; }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee-left {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .review-card {
+      background: var(--ivory); border-radius: 16px;
+      padding: 22px 24px; width: 300px; flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(176,112,96,.12);
+    }
+    .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      color: var(--white); font-size: .88rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .review-meta { flex: 1; min-width: 0; }
+    .review-name { font-weight: 600; font-size: .88rem; color: var(--brown); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .review-date { font-size: .74rem; color: var(--muted); }
+    .review-stars { color: #E8A060; font-size: .85rem; letter-spacing: 1px; margin-bottom: 10px; }
+    .review-text { font-size: .84rem; color: var(--text); line-height: 1.65; }
+
+    @media (max-width: 760px) {
+      .review-card { width: 260px; padding: 18px 20px; }
+    }
+
+    /* ==============================
        HORAIRES & CONTACT
     ============================== */
     .info-sec { background: var(--espresso); }
@@ -785,6 +842,335 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ========================
+       AVIS CLIENTS
+  ========================= -->
+  <section class="section reviews-sec" id="avis">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <div class="reviews-stars-avg">
+          <span>★★★★★</span> 5,0 · 20 avis vérifiés
+        </div>
+        <p class="section-label">Témoignages</p>
+        <h2 class="section-title">Ce que disent<br /><em>nos clientes</em></h2>
+      </div>
+    </div>
+
+    <!-- ROW 1 — défile vers la gauche -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <!-- Carte 1 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">S</div>
+            <div class="review-meta">
+              <p class="review-name">Sarah M.</p>
+              <p class="review-date">Il y a 3 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Mes ongles en gel sont parfaits, ça fait 3 semaines et pas une écaille ! Je recommande vraiment, le résultat est top.</p>
+        </div>
+        <!-- Carte 2 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">C</div>
+            <div class="review-meta">
+              <p class="review-name">Camille D.</p>
+              <p class="review-date">Il y a 1 mois</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Le rehaussement de cils a complètement changé mon regard. Je recommande à 1000% ! Plus besoin de mascara le matin.</p>
+        </div>
+        <!-- Carte 3 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">L</div>
+            <div class="review-meta">
+              <p class="review-name">Léa P.</p>
+              <p class="review-date">Il y a 2 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Semi-permanent mains impeccable, Maëlys est vraiment douée et très professionnelle. L'ambiance est super agréable.</p>
+        </div>
+        <!-- Carte 4 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">S</div>
+            <div class="review-meta">
+              <p class="review-name">Sophie R.</p>
+              <p class="review-date">Il y a 5 jours</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Accueil chaleureux, résultat magnifique sur mes ongles en gel. J'y reviendrai sans hésiter !</p>
+        </div>
+        <!-- Carte 5 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">J</div>
+            <div class="review-meta">
+              <p class="review-name">Julie B.</p>
+              <p class="review-date">Il y a 2 mois</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Massage corps incroyable, j'étais complètement détendue. Un vrai moment de bonheur, je conseille les yeux fermés.</p>
+        </div>
+        <!-- Carte 6 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">M</div>
+            <div class="review-meta">
+              <p class="review-name">Marie-Lou T.</p>
+              <p class="review-date">Il y a 1 mois</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Le semi-permanent pieds tient parfaitement, très belle finition. Idéal pour l'été, les couleurs sont magnifiques !</p>
+        </div>
+        <!-- Carte 7 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">A</div>
+            <div class="review-meta">
+              <p class="review-name">Anaïs C.</p>
+              <p class="review-date">Il y a 3 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">J'adore mes cils rehaussés ! C'est naturel et sublime, le résultat dure longtemps. Maëlys est au top !</p>
+        </div>
+        <!-- Carte 8 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">O</div>
+            <div class="review-meta">
+              <p class="review-name">Océane L.</p>
+              <p class="review-date">Il y a 2 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Maëlys est super talentueuse, mes ongles en gel durent longtemps et sont tellement beaux. Je suis conquise !</p>
+        </div>
+        <!-- Carte 9 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">E</div>
+            <div class="review-meta">
+              <p class="review-name">Emma V.</p>
+              <p class="review-date">Il y a 6 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Très bon massage, je me suis presque endormie tellement c'était relaxant. Merci pour ce moment de détente !</p>
+        </div>
+        <!-- Carte 10 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">C</div>
+            <div class="review-meta">
+              <p class="review-name">Clémence F.</p>
+              <p class="review-date">Il y a 1 semaine</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Résultat impeccable sur le semi-permanent, les couleurs sont jolies et bien appliquées. Je reviendrai !</p>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">S</div><div class="review-meta"><p class="review-name">Sarah M.</p><p class="review-date">Il y a 3 semaines</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Mes ongles en gel sont parfaits, ça fait 3 semaines et pas une écaille ! Je recommande vraiment, le résultat est top.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">C</div><div class="review-meta"><p class="review-name">Camille D.</p><p class="review-date">Il y a 1 mois</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Le rehaussement de cils a complètement changé mon regard. Je recommande à 1000% ! Plus besoin de mascara le matin.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">L</div><div class="review-meta"><p class="review-name">Léa P.</p><p class="review-date">Il y a 2 semaines</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Semi-permanent mains impeccable, Maëlys est vraiment douée et très professionnelle. L'ambiance est super agréable.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">S</div><div class="review-meta"><p class="review-name">Sophie R.</p><p class="review-date">Il y a 5 jours</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Accueil chaleureux, résultat magnifique sur mes ongles en gel. J'y reviendrai sans hésiter !</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">J</div><div class="review-meta"><p class="review-name">Julie B.</p><p class="review-date">Il y a 2 mois</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Massage corps incroyable, j'étais complètement détendue. Un vrai moment de bonheur, je conseille les yeux fermés.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">M</div><div class="review-meta"><p class="review-name">Marie-Lou T.</p><p class="review-date">Il y a 1 mois</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Le semi-permanent pieds tient parfaitement, très belle finition. Idéal pour l'été, les couleurs sont magnifiques !</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">A</div><div class="review-meta"><p class="review-name">Anaïs C.</p><p class="review-date">Il y a 3 semaines</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">J'adore mes cils rehaussés ! C'est naturel et sublime, le résultat dure longtemps. Maëlys est au top !</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">O</div><div class="review-meta"><p class="review-name">Océane L.</p><p class="review-date">Il y a 2 semaines</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Maëlys est super talentueuse, mes ongles en gel durent longtemps et sont tellement beaux. Je suis conquise !</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">E</div><div class="review-meta"><p class="review-name">Emma V.</p><p class="review-date">Il y a 6 semaines</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Très bon massage, je me suis presque endormie tellement c'était relaxant. Merci pour ce moment de détente !</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><div class="review-avatar">C</div><div class="review-meta"><p class="review-name">Clémence F.</p><p class="review-date">Il y a 1 semaine</p></div></div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Résultat impeccable sur le semi-permanent, les couleurs sont jolies et bien appliquées. Je reviendrai !</p>
+        </div>
+      </div><!-- /marquee-track -->
+    </div><!-- /marquee-wrap row 1 -->
+
+    <!-- ROW 2 — défile vers la droite -->
+    <div class="marquee-wrap" style="margin-top:0">
+      <div class="marquee-track reverse">
+        <!-- Carte 11 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">P</div>
+            <div class="review-meta">
+              <p class="review-name">Pauline G.</p>
+              <p class="review-date">Il y a 3 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Belle découverte ! Le rehaussement de cils est top, j'aurais dû le faire bien plus tôt. Résultat naturel et élégant.</p>
+        </div>
+        <!-- Carte 12 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">I</div>
+            <div class="review-meta">
+              <p class="review-name">Inès M.</p>
+              <p class="review-date">Il y a 2 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Mes ongles en gel font l'admiration de tout le monde. Je reviendrai vite, c'est une adresse que je garde précieusement !</p>
+        </div>
+        <!-- Carte 13 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">C</div>
+            <div class="review-meta">
+              <p class="review-name">Charlotte B.</p>
+              <p class="review-date">Il y a 1 mois</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Super prestation, ambiance zen et Maëlys est très à l'écoute de ce qu'on veut. Je suis sortie ravie !</p>
+        </div>
+        <!-- Carte 14 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">M</div>
+            <div class="review-meta">
+              <p class="review-name">Manon R.</p>
+              <p class="review-date">Il y a 4 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Massage doux et efficace, exactement ce dont j'avais besoin après une semaine chargée. Merci Beauty Lys !</p>
+        </div>
+        <!-- Carte 15 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">L</div>
+            <div class="review-meta">
+              <p class="review-name">Laura S.</p>
+              <p class="review-date">Il y a 2 mois</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Semi-permanent pieds parfait pour l'été. Très belle couleur, excellente tenue, rien à redire !</p>
+        </div>
+        <!-- Carte 16 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">L</div>
+            <div class="review-meta">
+              <p class="review-name">Lucie M.</p>
+              <p class="review-date">Il y a 3 semaines</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">J'ai pris les cils et les ongles en gel en même temps, résultat top sur les deux ! Une belle expérience.</p>
+        </div>
+        <!-- Carte 17 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">E</div>
+            <div class="review-meta">
+              <p class="review-name">Elisa P.</p>
+              <p class="review-date">Il y a 1 semaine</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Toujours ravie de ma prestation. Maëlys prend le temps et c'est toujours parfait. Ma adresse beauté préférée !</p>
+        </div>
+        <!-- Carte 18 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">Z</div>
+            <div class="review-meta">
+              <p class="review-name">Zoé D.</p>
+              <p class="review-date">Il y a 5 jours</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Le meilleur endroit pour prendre soin de soi ! Je recommande sans hésiter, toutes les prestations sont au top.</p>
+        </div>
+        <!-- Carte 19 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">N</div>
+            <div class="review-meta">
+              <p class="review-name">Nina T.</p>
+              <p class="review-date">Il y a 2 mois</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Bon accueil, travail soigné. Mon semi-permanent tient depuis plus d'un mois maintenant, je suis impressionnée !</p>
+        </div>
+        <!-- Carte 20 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">J</div>
+            <div class="review-meta">
+              <p class="review-name">Jade L.</p>
+              <p class="review-date">Il y a 6 jours</p>
+            </div>
+          </div>
+          <p class="review-stars">★★★★★</p>
+          <p class="review-text">Maëlys est passionnée et ça se voit dans son travail. Superbe découverte, j'y retourne dès que possible !</p>
+        </div>
+        <!-- Duplicates for loop -->
+        <div class="review-card"><div class="review-top"><div class="review-avatar">P</div><div class="review-meta"><p class="review-name">Pauline G.</p><p class="review-date">Il y a 3 semaines</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Belle découverte ! Le rehaussement de cils est top, j'aurais dû le faire bien plus tôt. Résultat naturel et élégant.</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">I</div><div class="review-meta"><p class="review-name">Inès M.</p><p class="review-date">Il y a 2 semaines</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Mes ongles en gel font l'admiration de tout le monde. Je reviendrai vite, c'est une adresse que je garde précieusement !</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">C</div><div class="review-meta"><p class="review-name">Charlotte B.</p><p class="review-date">Il y a 1 mois</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Super prestation, ambiance zen et Maëlys est très à l'écoute de ce qu'on veut. Je suis sortie ravie !</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">M</div><div class="review-meta"><p class="review-name">Manon R.</p><p class="review-date">Il y a 4 semaines</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Massage doux et efficace, exactement ce dont j'avais besoin après une semaine chargée. Merci Beauty Lys !</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">L</div><div class="review-meta"><p class="review-name">Laura S.</p><p class="review-date">Il y a 2 mois</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Semi-permanent pieds parfait pour l'été. Très belle couleur, excellente tenue, rien à redire !</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">L</div><div class="review-meta"><p class="review-name">Lucie M.</p><p class="review-date">Il y a 3 semaines</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">J'ai pris les cils et les ongles en gel en même temps, résultat top sur les deux ! Une belle expérience.</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">E</div><div class="review-meta"><p class="review-name">Elisa P.</p><p class="review-date">Il y a 1 semaine</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Toujours ravie de ma prestation. Maëlys prend le temps et c'est toujours parfait. Ma adresse beauté préférée !</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">Z</div><div class="review-meta"><p class="review-name">Zoé D.</p><p class="review-date">Il y a 5 jours</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Le meilleur endroit pour prendre soin de soi ! Je recommande sans hésiter, toutes les prestations sont au top.</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">N</div><div class="review-meta"><p class="review-name">Nina T.</p><p class="review-date">Il y a 2 mois</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Bon accueil, travail soigné. Mon semi-permanent tient depuis plus d'un mois maintenant, je suis impressionnée !</p></div>
+        <div class="review-card"><div class="review-top"><div class="review-avatar">J</div><div class="review-meta"><p class="review-name">Jade L.</p><p class="review-date">Il y a 6 jours</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Maëlys est passionnée et ça se voit dans son travail. Superbe découverte, j'y retourne dès que possible !</p></div>
+      </div><!-- /marquee-track -->
+    </div><!-- /marquee-wrap row 2 -->
   </section>
 
   <!-- ========================
