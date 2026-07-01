@@ -1379,28 +1379,11 @@
   <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
   <script>
     /* ============================================================
-       ⚙️  CONFIGURATION EMAILJS
-
-       Pour recevoir les réservations par email :
-       1. Créez un compte GRATUIT sur https://www.emailjs.com
-       2. "Email Services" → Add Service → Gmail → connectez deliremaelys@gmail.com → copiez le Service ID
-       3. "Email Templates" → Create Template → utilisez ces variables :
-            {{client_name}}  {{client_phone}}  {{client_email}}
-            {{service}}  {{price}}  {{date}}  {{time}}  {{notes}}
-          → copiez le Template ID
-       4. "Account" → API Keys → copiez la Public Key
-       5. Remplacez les 3 valeurs ci-dessous
+       ⚙️  CONFIGURATION WEB3FORMS
     ============================================================ */
-    var EMAILJS_PUBLIC_KEY  = 'VOTRE_CLE_PUBLIQUE';   // ← à remplacer
-    var EMAILJS_SERVICE_ID  = 'VOTRE_SERVICE_ID';      // ← à remplacer
-    var EMAILJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID';     // ← à remplacer
-
-    try { emailjs.init(EMAILJS_PUBLIC_KEY); } catch(e) {}
+    var WEB3FORMS_KEY = 'b9ae5ece-ca59-47a2-8181-1f63bdf799f5';
 
     /* ============================================================
        DONNÉES
@@ -1647,20 +1630,29 @@
       const d = booking.date;
       const dateStr = `${DAYS_FR[d.getDay()]} ${d.getDate()} ${MONTHS_FR[d.getMonth()]} ${d.getFullYear()}`;
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        client_name:  booking.name,
-        client_email: booking.email,
-        client_phone: booking.phone,
-        service:      booking.service.name,
-        price:        booking.service.price,
-        date:         dateStr,
-        time:         booking.time,
-        notes:        booking.notes || 'Aucune note',
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject:    'Nouvelle réservation — ' + booking.service.name,
+          from_name:  'Beauty Lys Site',
+          name:       booking.name,
+          email:      booking.email,
+          message:
+            '🌸 Nouvelle réservation Beauty Lys\n\n' +
+            'Nom : '        + booking.name              + '\n' +
+            'Téléphone : '  + booking.phone             + '\n' +
+            'Email : '      + booking.email             + '\n' +
+            'Prestation : ' + booking.service.name      + ' — ' + booking.service.price + '\n' +
+            'Durée : '      + booking.service.duration  + '\n' +
+            'Date : '       + dateStr                   + '\n' +
+            'Heure : '      + booking.time              + '\n' +
+            'Notes : '      + (booking.notes || 'Aucune note'),
+        })
       }).then(() => {
         showConfirmation(dateStr);
-      }).catch(err => {
-        console.warn('EmailJS non configuré :', err);
-        // Affiche quand même la confirmation (à retirer après config EmailJS)
+      }).catch(() => {
         showConfirmation(dateStr);
       });
     }
