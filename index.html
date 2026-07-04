@@ -1921,8 +1921,7 @@
         var initial = r.name.charAt(0).toUpperCase();
         return '<div class="review-card review-card--user">' +
           '<span class="review-new-badge">Récent</span>' +
-          '<button onclick="deleteUserReview(' + i + ')" title="Supprimer" style="position:absolute;top:10px;left:14px;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--muted);line-height:1;padding:2px 6px;border-radius:50%;transition:background .15s" onmouseover="this.style.background=\'rgba(176,112,96,.12)\'" onmouseout="this.style.background=\'none\'">×</button>' +
-          '<div class="review-top" style="padding-left:28px"><div class="review-avatar">' + initial + '</div>' +
+          '<div class="review-top"><div class="review-avatar">' + initial + '</div>' +
           '<div class="review-meta"><p class="review-name">' + escHtml(r.name) + '</p>' +
           '<p class="review-date">' + r.date + '</p></div></div>' +
           '<p class="review-stars">' + stars + '</p>' +
