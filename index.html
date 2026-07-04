@@ -332,6 +332,102 @@
       .review-card { width: 260px; padding: 18px 20px; }
     }
 
+    /* ============================== DÉPÔT D'AVIS ============================== */
+    .reviews-cta { margin-top: 28px; }
+    .btn-write-review {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--ivory); border: 2px solid var(--rose);
+      color: var(--rose); border-radius: 50px;
+      padding: 13px 30px; font-size: .95rem; font-weight: 600;
+      cursor: pointer; transition: all .25s ease; font-family: inherit;
+    }
+    .btn-write-review:hover {
+      background: var(--rose); color: var(--ivory);
+      transform: translateY(-2px); box-shadow: var(--shadow-sm);
+    }
+    /* Overlay review */
+    .review-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(60,30,26,.45); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .review-overlay.open { opacity: 1; pointer-events: all; }
+    .review-modal-box {
+      background: var(--ivory); border-radius: 24px;
+      padding: 36px; width: 100%; max-width: 480px;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(20px) scale(.97);
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+      max-height: 90svh; overflow-y: auto;
+    }
+    .review-overlay.open .review-modal-box { transform: none; }
+    .review-modal-box__title { font-size: 1.4rem; font-weight: 700; color: var(--brown); margin-bottom: 4px; }
+    .review-modal-box__sub { font-size: .86rem; color: var(--muted); margin-bottom: 26px; }
+    /* Étoiles */
+    .star-picker { display: flex; gap: 6px; margin-bottom: 24px; }
+    .star-picker__btn {
+      font-size: 2rem; cursor: pointer; color: #DDD; line-height: 1;
+      transition: color .12s, transform .12s;
+      background: none; border: none; padding: 0;
+    }
+    .star-picker__btn.lit { color: #E8A060; transform: scale(1.12); }
+    /* Champs */
+    .rv-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .rv-field label { font-size: .78rem; font-weight: 700; color: var(--brown); letter-spacing: .05em; text-transform: uppercase; }
+    .rv-field input, .rv-field textarea, .rv-field select {
+      border: 1.5px solid var(--blush-dark); border-radius: 12px;
+      padding: 12px 15px; font-size: .93rem; color: var(--text);
+      background: white; font-family: inherit; outline: none;
+      transition: border-color .2s; resize: none;
+    }
+    .rv-field input:focus, .rv-field textarea:focus, .rv-field select:focus { border-color: var(--rose); }
+    .rv-field textarea { min-height: 96px; }
+    /* Actions */
+    .review-modal-actions { display: flex; gap: 12px; margin-top: 8px; }
+    .btn-rv-cancel {
+      flex: 1; padding: 12px; border-radius: 50px;
+      border: 1.5px solid var(--blush-dark); background: transparent;
+      color: var(--muted); font-size: .88rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: all .2s;
+    }
+    .btn-rv-cancel:hover { border-color: var(--rose); color: var(--rose); }
+    .btn-rv-submit {
+      flex: 2; padding: 12px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      border: none; color: white; font-size: .9rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: all .2s;
+      box-shadow: 0 4px 16px rgba(176,112,96,.3);
+    }
+    .btn-rv-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(176,112,96,.4); }
+    .btn-rv-submit:disabled { opacity: .6; cursor: default; transform: none; }
+    /* État succès */
+    .rv-success { text-align: center; padding: 16px 0; }
+    .rv-success__icon { font-size: 3.2rem; line-height: 1; margin-bottom: 14px; }
+    .rv-success__title { font-size: 1.25rem; font-weight: 700; color: var(--brown); margin-bottom: 8px; }
+    .rv-success__text { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+    /* Avis récents */
+    .user-reviews-section { display: none; padding: 40px 0 0; }
+    .user-reviews-section.visible { display: block; }
+    .user-reviews-label {
+      text-align: center; font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 20px;
+    }
+    .user-reviews-grid { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .review-card--user { border: 2px solid rgba(176,112,96,.25); position: relative; }
+    .review-new-badge {
+      position: absolute; top: -11px; right: 14px;
+      background: var(--rose); color: white;
+      font-size: .67rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+    }
+    @media (max-width: 760px) {
+      .review-modal-box { padding: 26px 20px; }
+      .user-reviews-grid { flex-direction: column; align-items: center; }
+    }
+
     /* ==============================
        HORAIRES & CONTACT
     ============================== */
@@ -870,6 +966,11 @@
         </div>
         <p class="section-label">Témoignages</p>
         <h2 class="section-title">Ce que disent<br /><em>nos clientes</em></h2>
+        <div class="reviews-cta">
+          <button class="btn-write-review" onclick="openReviewModal()">
+            ✏️ Déposer mon avis
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1186,6 +1287,14 @@
         <div class="review-card"><div class="review-top"><div class="review-avatar">J</div><div class="review-meta"><p class="review-name">Jade L.</p><p class="review-date">Il y a 6 jours</p></div></div><p class="review-stars">★★★★★</p><p class="review-text">Maëlys est passionnée et ça se voit dans son travail. Superbe découverte, j'y retourne dès que possible !</p></div>
       </div><!-- /marquee-track -->
     </div><!-- /marquee-wrap row 2 -->
+
+    <!-- Avis déposés par les clients (localStorage) -->
+    <div class="container">
+      <div class="user-reviews-section" id="userReviewsSection">
+        <p class="user-reviews-label">✨ Avis récents</p>
+        <div class="user-reviews-grid" id="userReviewsGrid"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ========================
@@ -1712,7 +1821,169 @@
     /* ============================================================
        KEYBOARD: fermer modal avec Escape
     ============================================================ */
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBooking(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeBooking(); closeReviewModal(); }
+    });
+
+    /* ============================================================
+       DÉPÔT D'AVIS CLIENTS
+    ============================================================ */
+    var reviewRating = 0;
+
+    function openReviewModal() {
+      reviewRating = 0;
+      document.getElementById('rvName').value = '';
+      document.getElementById('rvService').value = '';
+      document.getElementById('rvText').value = '';
+      renderStars(0);
+      document.getElementById('reviewFormBody').style.display = '';
+      document.getElementById('reviewSuccessBody').style.display = 'none';
+      document.getElementById('reviewOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReviewModal() {
+      document.getElementById('reviewOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleReviewOverlayClick(e) {
+      if (e.target === document.getElementById('reviewOverlay')) closeReviewModal();
+    }
+
+    function renderStars(n) {
+      var btns = document.querySelectorAll('.star-picker__btn');
+      btns.forEach(function(b, i) {
+        b.classList.toggle('lit', i < n);
+      });
+    }
+
+    function hoverStars(n) { renderStars(n); }
+    function leaveStars()   { renderStars(reviewRating); }
+    function selectStar(n)  { reviewRating = n; renderStars(n); }
+
+    function submitReview() {
+      var name    = document.getElementById('rvName').value.trim();
+      var service = document.getElementById('rvService').value;
+      var text    = document.getElementById('rvText').value.trim();
+      if (!name || !text || reviewRating === 0) {
+        alert('Merci de remplir votre nom, votre avis et de choisir une note en étoiles.');
+        return;
+      }
+      var btn = document.getElementById('rvSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Envoi…';
+
+      /* Sauvegarde en local + affichage immédiat */
+      var stored = JSON.parse(localStorage.getItem('beautylys_reviews') || '[]');
+      var entry = {
+        name: name, service: service, text: text, rating: reviewRating,
+        date: new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+      };
+      stored.unshift(entry);
+      localStorage.setItem('beautylys_reviews', JSON.stringify(stored));
+      renderUserReviews();
+
+      /* Envoi email via Web3Forms */
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: '⭐ Nouvel avis client — Beauty Lys',
+          from_name: 'Beauty Lys Site',
+          name: name,
+          message: '⭐ Nouvel avis client\n\nNom : ' + name + '\nNote : ' + '★'.repeat(reviewRating) + '\nPrestation : ' + (service || 'Non précisé') + '\n\nAvis :\n' + text
+        })
+      }).catch(function(){});
+
+      document.getElementById('reviewFormBody').style.display = 'none';
+      document.getElementById('reviewSuccessBody').style.display = '';
+      btn.disabled = false;
+      btn.textContent = 'Publier mon avis';
+    }
+
+    function renderUserReviews() {
+      var stored = JSON.parse(localStorage.getItem('beautylys_reviews') || '[]');
+      var section = document.getElementById('userReviewsSection');
+      var grid    = document.getElementById('userReviewsGrid');
+      if (!stored.length) { section.classList.remove('visible'); return; }
+      section.classList.add('visible');
+      grid.innerHTML = stored.map(function(r) {
+        var stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+        var initial = r.name.charAt(0).toUpperCase();
+        return '<div class="review-card review-card--user">' +
+          '<span class="review-new-badge">Récent</span>' +
+          '<div class="review-top"><div class="review-avatar">' + initial + '</div>' +
+          '<div class="review-meta"><p class="review-name">' + escHtml(r.name) + '</p>' +
+          '<p class="review-date">' + r.date + '</p></div></div>' +
+          '<p class="review-stars">' + stars + '</p>' +
+          '<p class="review-text">' + escHtml(r.text) + '</p>' +
+          (r.service ? '<p style="font-size:.76rem;color:var(--muted);margin-top:8px">Prestation : ' + escHtml(r.service) + '</p>' : '') +
+          '</div>';
+      }).join('');
+    }
+
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    /* Affichage au chargement */
+    renderUserReviews();
   </script>
+
+  <!-- ========================
+       MODAL DÉPÔT D'AVIS
+  ========================= -->
+  <div class="review-overlay" id="reviewOverlay" onclick="handleReviewOverlayClick(event)">
+    <div class="review-modal-box">
+      <!-- Formulaire -->
+      <div id="reviewFormBody">
+        <p class="review-modal-box__title">Votre avis</p>
+        <p class="review-modal-box__sub">Partagez votre expérience chez Beauty Lys</p>
+        <!-- Étoiles -->
+        <div class="star-picker" id="starPicker">
+          <button class="star-picker__btn" onmouseenter="hoverStars(1)" onmouseleave="leaveStars()" onclick="selectStar(1)">★</button>
+          <button class="star-picker__btn" onmouseenter="hoverStars(2)" onmouseleave="leaveStars()" onclick="selectStar(2)">★</button>
+          <button class="star-picker__btn" onmouseenter="hoverStars(3)" onmouseleave="leaveStars()" onclick="selectStar(3)">★</button>
+          <button class="star-picker__btn" onmouseenter="hoverStars(4)" onmouseleave="leaveStars()" onclick="selectStar(4)">★</button>
+          <button class="star-picker__btn" onmouseenter="hoverStars(5)" onmouseleave="leaveStars()" onclick="selectStar(5)">★</button>
+        </div>
+        <div class="rv-field">
+          <label>Votre prénom *</label>
+          <input id="rvName" type="text" placeholder="Ex : Sophie" maxlength="50" />
+        </div>
+        <div class="rv-field">
+          <label>Prestation</label>
+          <select id="rvService">
+            <option value="">Sélectionner (optionnel)</option>
+            <option>Ongles en gel</option>
+            <option>Semi-permanent mains</option>
+            <option>Semi-permanent pieds</option>
+            <option>Semi-permanent mains + pieds</option>
+            <option>Massage corps</option>
+            <option>Rehaussement de cils</option>
+          </select>
+        </div>
+        <div class="rv-field">
+          <label>Votre avis *</label>
+          <textarea id="rvText" placeholder="Partagez votre expérience…" maxlength="500"></textarea>
+        </div>
+        <div class="review-modal-actions">
+          <button class="btn-rv-cancel" onclick="closeReviewModal()">Annuler</button>
+          <button class="btn-rv-submit" id="rvSubmitBtn" onclick="submitReview()">Publier mon avis</button>
+        </div>
+      </div>
+      <!-- Succès -->
+      <div id="reviewSuccessBody" style="display:none">
+        <div class="rv-success">
+          <div class="rv-success__icon">🌸</div>
+          <p class="rv-success__title">Merci pour votre avis !</p>
+          <p class="rv-success__text">Votre témoignage a bien été transmis à Maëlys.<br />Il apparaît maintenant sur la page.</p>
+          <button class="btn-rv-submit" style="margin-top:24px;display:inline-block;padding:13px 36px" onclick="closeReviewModal()">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
