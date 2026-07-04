@@ -223,23 +223,23 @@
     .gallery-sec { background: var(--blush); }
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
     }
     .gallery-item {
       border-radius: 14px; overflow: hidden;
       position: relative; background: var(--ivory);
       box-shadow: var(--shadow-sm);
+      aspect-ratio: 3 / 4;
     }
     .gallery-item img {
       width: 100%; height: 100%; object-fit: cover;
+      object-position: center 45%;
       transition: transform .6s cubic-bezier(.4,0,.2,1);
       display: block;
     }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item--before { grid-row: 1 / 3; }
-    .gallery-item--before img { height: 500px; }
-    .gallery-item img { height: 240px; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item--before { aspect-ratio: 3 / 4; }
     .gallery-tag {
       position: absolute; top: 14px; left: 14px; z-index: 2;
       font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
@@ -597,12 +597,13 @@
       .process-steps { grid-template-columns: 1fr 1fr; }
       .process-step::after { display: none; }
     }
+    @media (max-width: 1000px) {
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+    }
     @media (max-width: 760px) {
       .section { padding: 72px 0; }
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-item--before { grid-row: auto; }
-      .gallery-item--before img, .gallery-item img { height: 220px; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
       .process-steps { grid-template-columns: 1fr; }
       .nav__links { display: none; position: absolute; top: 76px; left:0; right:0; flex-direction: column; background: var(--ivory); padding: 20px 28px 28px; gap: 18px; border-bottom: 1px solid rgba(196,149,106,.15); box-shadow: var(--shadow-sm); }
       .nav__links.open { display: flex; }
@@ -616,7 +617,7 @@
     }
     @media (max-width: 480px) {
       .services-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-inner { flex-direction: column; text-align: center; }
       .hero__title { font-size: 2.8rem; }
     }
